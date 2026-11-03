@@ -1,0 +1,58 @@
+[
+ {
+  "config": "rgb",
+  "params_total": 18467660,
+  "params_inference": 18008138,
+  "gflops": 1.503,
+  "cpu_ms_b1": 139.4,
+  "cpu_ms_per_img_b8": 74.4
+ },
+ {
+  "config": "dct",
+  "params_total": 18467660,
+  "params_inference": 18008138,
+  "gflops": 1.57,
+  "cpu_ms_b1": 122.6,
+  "cpu_ms_per_img_b8": 73.9
+ },
+ {
+  "config": "dct+se",
+  "params_total": 20076428,
+  "params_inference": 19616906,
+  "gflops": 1.572,
+  "cpu_ms_b1": 106.5,
+  "cpu_ms_per_img_b8": 62.6
+ },
+ {
+  "config": "dct+band (full)",
+  "params_total": 18470812,
+  "params_inference": 18011290,
+  "gflops": 1.573,
+  "cpu_ms_b1": 102.6,
+  "cpu_ms_per_img_b8": 73.7
+ },
+ {
+  "config": "stage: DCT",
+  "params_total": 0,
+  "gflops": 0.0674,
+  "cpu_ms_b1": 2.13
+ },
+ {
+  "config": "stage: band attention",
+  "params_total": 3152,
+  "gflops": 0.0024,
+  "cpu_ms_b1": 2.13
+ },
+ {
+  "config": "stage: backbone",
+  "params_total": 17548616,
+  "gflops": 1.5019,
+  "cpu_ms_b1": 113.15
+ },
+ {
+  "config": "stage: SE channel attention",
+  "params_total": 1608768,
+  "gflops": 0.00161,
+  "cpu_ms_b1": 0.706
+ }
+]

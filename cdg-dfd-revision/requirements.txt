@@ -1,0 +1,13 @@
+torch>=2.1
+torchvision
+timm
+facenet-pytorch  # install with --no-deps to keep your torch build
+numpy
+pandas
+scikit-learn
+pillow
+opencv-python
+matplotlib
+open_clip_torch
+ftfy
+regex
