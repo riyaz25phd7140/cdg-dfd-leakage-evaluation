@@ -15,9 +15,9 @@ Everything is here: the data rebuild, the leakage audit, every experiment report
 | `src/cdg_external.py` | External test on unseen generators (ArtiFact face subsets): sampling, cropping, scoring, report |
 | `src/cdg_e3.py` | Multi-family training with leave-one-family-out test splits |
 | `src/cdg_univfd.py` | UnivFD baseline (frozen CLIP ViT-L/14 + linear probe) under the same protocol |
-| `notebooks/` | The Kaggle notebooks exactly as run (`phase1_*`, `phase2_E*`, `phase2_FIG4_roc`) |
+| `notebooks/` | The Kaggle notebooks exactly as run (`phase1_*`, `phase2_E*`, `phase2_FIG2_examples_v3`, `phase2_FIG4_roc`) |
 | `notebooks/builders/` | Scripts that generate those notebooks from `src/` |
-| `figures/` | Figure 1 (architecture), Figures 3–4 (`make_fig3_fig4.py`, from the E10 summary numbers) and the plotting cells used inside the experiment notebooks |
+| `figures/` | Figure 1 (`fig1_architecture.py`), Figures 4–5 (`make_fig4_fig5.py`, from the E10 summary numbers) and the plotting cells used inside the experiment notebooks. All PDF/EPS output embeds TrueType fonts. |
 | `efficiency/` | Parameter / GMAC / latency measurement (E9) and its raw output |
 | `tests/make_mock.py` | Tiny synthetic dataset for a fast end-to-end smoke test |
 
@@ -69,7 +69,19 @@ The notebooks in `notebooks/` contain the exact command lines and settings for e
 | E6: RGB follow-up (ArtiFact, corruptions, throughput) | `phase2_E6_rgb_followup` |
 | E9: parameters, GMACs, latency | `efficiency/e9_cost.py` |
 | E10: UnivFD and CNNDetection baselines | `phase2_E10_baselines` |
-| Figure 5: ROC curves and operating points | `phase2_FIG4_roc` |
+
+### Figures in the paper
+
+| Figure | Content | Source |
+|---|---|---|
+| Fig. 1 | Architecture | `figures/fig1_architecture.py` |
+| Fig. 2 | Example faces, DCT spectra, average band fingerprints, effect of blur and JPEG | `notebooks/phase2_FIG2_examples_v3` |
+| Fig. 3 | Learned band gains of the spectral attention | `notebooks/phase2_E1b_matched` |
+| Fig. 4 | AUC on the 14 unseen ArtiFact generators, four detectors | `figures/make_fig4_fig5.py` (numbers from `phase2_E10_baselines`) |
+| Fig. 5 | Robustness on the held-out diffusion generator | `figures/make_fig4_fig5.py` (numbers from `phase2_E10_baselines`) |
+| Fig. 6 | ROC curves and validation operating points | `notebooks/phase2_FIG4_roc` |
+
+The notebook name `phase2_FIG4_roc` is kept from the Kaggle run; it produces Figure 6 of the paper.
 
 Every training run writes the following, so tables and figures can be regenerated without retraining:
 - `config.json`
