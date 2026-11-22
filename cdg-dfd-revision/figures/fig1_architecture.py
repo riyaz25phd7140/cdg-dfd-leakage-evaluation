@@ -1,9 +1,10 @@
-"""Figure 1: CDG-DFD architecture (vector). Shapes and parameter counts match cdg_train.py."""
+ """Figure 1: CDG-DFD architecture (vector). Shapes and parameter counts match cdg_train.py."""
 import matplotlib.pyplot as plt
 from matplotlib.patches import FancyBboxPatch, FancyArrowPatch, Circle
 import numpy as np
 
-plt.rcParams.update({'font.family': 'DejaVu Sans', 'font.size': 9})
+plt.rcParams.update({'font.family': 'DejaVu Sans', 'font.size': 9,
+                     'pdf.fonttype': 42, 'ps.fonttype': 42})  # embed TrueType fonts (no Type 3)
 INK, MUTED, LINE = '#1F2933', '#5B6670', '#8A949E'
 C_IN, C_DCT, C_SAM, C_BB, C_HEAD, C_DOM = '#EEF2F6', '#E3EEF9', '#FBE9DD', '#E6F1E8', '#EFE8F6', '#F4F4F4'
 
