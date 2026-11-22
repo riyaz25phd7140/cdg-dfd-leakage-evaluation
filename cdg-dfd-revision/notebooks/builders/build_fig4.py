@@ -1,4 +1,4 @@
-"""Builds phase2_FIG4_roc.ipynb: replacement for the old Figure 4 (Reviewer 2, Comment 9).
+"""Builds phase2_FIG4_roc.ipynb: replacement for the old Figure 4 (Reviewer 2, Comment 9); Figure 6 in the revised paper.
 CPU only. Reads the saved test predictions + validation thresholds of the E2 runs (and of the E1b full model,
 if its checkpoints input is attached) and draws ROC curves and confusion matrices inside Kaggle."""
 import json
