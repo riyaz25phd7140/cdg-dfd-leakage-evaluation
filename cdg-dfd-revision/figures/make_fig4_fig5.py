@@ -1,10 +1,11 @@
-"""Redraws Figures 3 and 4 with publication labels from the E10 summary numbers (Kaggle run phase2_E10_baselines)."""
+"""Redraws Figures 4 and 5 with publication labels from the E10 summary numbers (Kaggle run phase2_E10_baselines)."""
 import matplotlib; matplotlib.use('Agg')
 import matplotlib.pyplot as plt, numpy as np, sys
 OUT = sys.argv[1]
-plt.rcParams.update({'font.family': 'DejaVu Sans', 'font.size': 9, 'axes.spines.top': False, 'axes.spines.right': False})
+plt.rcParams.update({'font.family': 'DejaVu Sans', 'font.size': 9, 'axes.spines.top': False, 'axes.spines.right': False,
+                     'pdf.fonttype': 42, 'ps.fonttype': 42})  # embed TrueType fonts (no Type 3)
 M = [('UnivFD', '#8172B3', 'o'), ('CNNDetection', '#DD8452', 's'), ('RGB EfficientNet-B4', '#4C72B0', 'D'), ('Frequency detector (ours)', '#C44E52', '^')]
-# Figure 3: AUC per ArtiFact generator, mean over folds and seeds (order: UnivFD, CNNDetection, RGB, ours)
+# Figure 4: AUC per ArtiFact generator, mean over folds and seeds (order: UnivFD, CNNDetection, RGB, ours)
 G = [('StarGAN', .89, .33, .38, .44), ('Stable Diffusion faces', .86, .70, .74, .61), ('GANformer', .81, .59, .62, .60),
      ('ProjectedGAN', .77, .57, .55, .45), ('SFHQ', .74, .72, .65, .59), ('FaceSynthetics', .73, .34, .44, .42),
      ('Taming Transformer', .70, .58, .60, .54), ('StyleGAN3', .69, .54, .56, .46), ('StyleGAN2', .68, .70, .71, .59),
@@ -20,8 +21,8 @@ ax.axhline(0.5, color='grey', lw=0.9, ls='--')
 ax.set_xticks(x); ax.set_xticklabels([g[0] for g in G], rotation=35, ha='right'); ax.set_ylim(0.25, 1.0); ax.set_xlim(-0.6, len(G) - 0.4)
 ax.set_ylabel('AUC against ArtiFact real faces')
 ax.legend(loc='upper center', bbox_to_anchor=(0.5, 1.16), ncol=4, frameon=False, fontsize=8)
-fig.tight_layout(); fig.savefig(f'{OUT}/fig3_artifact.png', dpi=300, bbox_inches='tight'); fig.savefig(f'{OUT}/fig3_artifact.pdf', bbox_inches='tight')
-# Figure 4: held-out diffusion generator under degradation (folds A and B)
+fig.tight_layout(); fig.savefig(f'{OUT}/fig4_artifact.png', dpi=300, bbox_inches='tight'); fig.savefig(f'{OUT}/fig4_artifact.pdf', bbox_inches='tight')
+# Figure 5: held-out diffusion generator under degradation (folds A and B)
 C = ['Clean', 'JPEG q30', 'Blur r=1', 'Noise σ=10', '0.5× + JPEG 70']
 R = {'A': [(.933, .811, .917, .831, .860), (.987, .963, .981, .944, .970), (.989, .865, .956, .401, .904), (.913, .760, .495, .645, .631)],
      'B': [(.909, .839, .856, .847, .874), (.884, .840, .874, .758, .848), (.901, .796, .885, .473, .829), (.783, .638, .539, .512, .528)]}
@@ -34,5 +35,5 @@ for ax, f in zip(axes, 'AB'):
     ax.set_title(f'Fold {f}: held-out SD {"1.5 text-to-image" if f == "A" else "inpainting"}', fontsize=9)
 axes[0].set_ylabel('Test AUC')
 fig.legend(*axes[0].get_legend_handles_labels(), loc='lower center', ncol=4, frameon=False, fontsize=8, bbox_to_anchor=(0.5, -0.1))
-fig.tight_layout(); fig.savefig(f'{OUT}/fig4_robustness.png', dpi=300, bbox_inches='tight'); fig.savefig(f'{OUT}/fig4_robustness.pdf', bbox_inches='tight')
+fig.tight_layout(); fig.savefig(f'{OUT}/fig5_robustness.png', dpi=300, bbox_inches='tight'); fig.savefig(f'{OUT}/fig5_robustness.pdf', bbox_inches='tight')
 print('ok')
