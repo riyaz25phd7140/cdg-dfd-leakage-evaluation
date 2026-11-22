@@ -1,4 +1,4 @@
- """Figure 1: CDG-DFD architecture (vector). Shapes and parameter counts match cdg_train.py."""
+"""Figure 1: CDG-DFD architecture (vector). Shapes and parameter counts match cdg_train.py."""
 import matplotlib.pyplot as plt
 from matplotlib.patches import FancyBboxPatch, FancyArrowPatch, Circle
 import numpy as np
